@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TdServer", "TdServer\TdServer.vcxproj", "{ABC699DD-6FE2-426A-A9BE-4E1AFDC6506E}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TdClient", "TdClient\TestTdServer.vcxproj", "{529A6212-6534-4D89-9AC0-B35C4E2DD1D4}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ClientTest", "ClientTest\ClientTest.vcxproj", "{F7A7C5CB-EF50-4968-8A60-DFF31D7EBFB2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{ABC699DD-6FE2-426A-A9BE-4E1AFDC6506E}.Debug|Win32.Build.0 = Debug|Win32
 		{ABC699DD-6FE2-426A-A9BE-4E1AFDC6506E}.Release|Win32.ActiveCfg = Release|Win32
 		{ABC699DD-6FE2-426A-A9BE-4E1AFDC6506E}.Release|Win32.Build.0 = Release|Win32
-		{529A6212-6534-4D89-9AC0-B35C4E2DD1D4}.Debug|Win32.ActiveCfg = Debug|Win32
-		{529A6212-6534-4D89-9AC0-B35C4E2DD1D4}.Debug|Win32.Build.0 = Debug|Win32
-		{529A6212-6534-4D89-9AC0-B35C4E2DD1D4}.Release|Win32.ActiveCfg = Release|Win32
-		{529A6212-6534-4D89-9AC0-B35C4E2DD1D4}.Release|Win32.Build.0 = Release|Win32
+		{F7A7C5CB-EF50-4968-8A60-DFF31D7EBFB2}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F7A7C5CB-EF50-4968-8A60-DFF31D7EBFB2}.Debug|Win32.Build.0 = Debug|Win32
+		{F7A7C5CB-EF50-4968-8A60-DFF31D7EBFB2}.Release|Win32.ActiveCfg = Release|Win32
+		{F7A7C5CB-EF50-4968-8A60-DFF31D7EBFB2}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

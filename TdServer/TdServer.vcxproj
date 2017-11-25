@@ -53,7 +53,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>E:\wg\bns\ToolTest\ToolTest\;..\common\;E:\x学习资料\socket\msgpack-c-master\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\include\msgpack\;..\include\;$(ToolTestPath);..\common\;E:\x学习资料\socket\msgpack-c-master\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -89,14 +89,23 @@
     <ClInclude Include="..\..\..\bns\ToolTest\ToolTest\NonCopyable.h" />
     <ClInclude Include="..\..\..\bns\ToolTest\ToolTest\StringTool.h" />
     <ClInclude Include="..\..\..\bns\ToolTest\ToolTest\SystemTool.h" />
+    <ClInclude Include="..\common\GameRoleID.h" />
     <ClInclude Include="..\common\MsgpackMap.h" />
+    <ClInclude Include="..\common\ServerTeamMember.h" />
+    <ClInclude Include="CJoinTeamReqCharacteristic.h" />
     <ClInclude Include="ClientList.h" />
-    <ClInclude Include="SocketSession.h" />
-    <ClInclude Include="DbConnctionPool.h" />
     <ClInclude Include="ClientSession.h" />
+    <ClInclude Include="DbConnctionPool.h" />
+    <ClInclude Include="JoinTeamRequest.h" />
+    <ClInclude Include="MatchSuccessTeamMgr.h" />
+    <ClInclude Include="SocketSession.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TcpServer.h" />
+    <ClInclude Include="Team.h" />
+    <ClInclude Include="TeamMgr.h" />
+    <ClInclude Include="TeamRequestMgr.h" />
+    <ClInclude Include="TempTeam.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\bns\ToolTest\ToolTest\BoostLog.cpp" />
@@ -105,17 +114,26 @@
     <ClCompile Include="..\..\..\bns\ToolTest\ToolTest\IniFile.cpp" />
     <ClCompile Include="..\..\..\bns\ToolTest\ToolTest\StringTool.cpp" />
     <ClCompile Include="..\..\..\bns\ToolTest\ToolTest\SystemTool.cpp" />
+    <ClCompile Include="..\common\GameRoleID.cpp" />
     <ClCompile Include="..\common\MsgpackMap.cpp" />
+    <ClCompile Include="..\common\ServerTeamMember.cpp" />
+    <ClCompile Include="CJoinTeamReqCharacteristic.cpp" />
     <ClCompile Include="ClientList.cpp" />
-    <ClCompile Include="SocketSession.cpp" />
-    <ClCompile Include="DbConnctionPool.cpp" />
     <ClCompile Include="ClientSession.cpp" />
+    <ClCompile Include="DbConnctionPool.cpp" />
+    <ClCompile Include="JoinTeamRequest.cpp" />
+    <ClCompile Include="MatchSuccessTeamMgr.cpp" />
+    <ClCompile Include="SocketSession.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="TcpServer.cpp" />
     <ClCompile Include="TdServer.cpp" />
+    <ClCompile Include="Team.cpp" />
+    <ClCompile Include="TeamMgr.cpp" />
+    <ClCompile Include="TeamRequestMgr.cpp" />
+    <ClCompile Include="TempTeam.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

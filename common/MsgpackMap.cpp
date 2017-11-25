@@ -1,8 +1,7 @@
 #include "stdafx.h"
 #include "MsgpackMap.h"
 #include "DebugOutput.h"
-#include "StringTool.h"
-#include "StringTool.h"
+#include "msgpack_wstring.h"
 CMsgpackMap::CMsgpackMap(const msgpack::object & obj) : m_obj(obj)
 {
 
@@ -38,29 +37,9 @@ void CMsgpackMap::Parse()
 	m_parsed = true;
 }
 
-int CMsgpackMap::GetValueInt(const std::string & key)
-{
-	if (!m_parsed)
-		Parse();
-	auto iter = m_save_parse_string_key.find(key);
-	if (iter != m_save_parse_string_key.end())
-		return iter->second.as<int>();
-	else
-		throw std::exception((std::string("no key:") + key).c_str());
 
-}
-std::wstring CMsgpackMap::GetValueStr(const std::string & key)
-{
-	if (!m_parsed)
-		Parse();
-	auto iter = m_save_parse_string_key.find(key);
-	if (iter != m_save_parse_string_key.end())
-		return string_tool::utf8_to_wstring(iter->second.as<std::string>());
-	else
-		throw std::exception((std::string("no key:") + key).c_str());
-}
 
-msgpack::object & CMsgpackMap::GetValue(const std::string & key)
+msgpack::object & CMsgpackMap::GetMsgpackObject(const std::string & key)
 {
 	if (!m_parsed)
 		Parse();

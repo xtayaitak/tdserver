@@ -10,9 +10,19 @@ class CMsgpackMap : public CNonCopyable
 public:
 	CMsgpackMap(const msgpack::object & obj);
 	~CMsgpackMap();
-	int GetValueInt(const std::string & key);
-	std::wstring GetValueStr(const std::string & key);
-	msgpack::object & GetValue(const std::string & key);
+	msgpack::object & GetMsgpackObject(const std::string & key);
+
+	template<typename T>
+	T GetValue(const std::string & key)
+	{
+		if (!m_parsed)
+			Parse();
+		auto iter = m_save_parse_string_key.find(key);
+		if (iter != m_save_parse_string_key.end())
+			return iter->second.as<T>();
+		else
+			throw std::exception((std::string("no key:") + key).c_str());
+	}
 protected:
 	void Parse();
 private:

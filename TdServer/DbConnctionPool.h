@@ -15,10 +15,8 @@ class CDbConnctionPool : public CClassInstance<CDbConnctionPool>
 public:
 	CDbConnctionPool(void);
 	~CDbConnctionPool(void);
-	BOOL Init();
 	BOOL ConnctionDataBase(const wchar_t * szIP,const wchar_t * User,const wchar_t * szPassWord);
 	VOID DisconnectionDataBase();
-	BOOL DeInit();
 	ADODB::_ConnectionPtr & GetConnectionPtr();
 private:
 	ADODB::_ConnectionPtr m_Connections[CONNECTION_POOL_COUNT];

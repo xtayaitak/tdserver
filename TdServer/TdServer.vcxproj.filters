@@ -25,6 +25,9 @@
     <Filter Include="db">
       <UniqueIdentifier>{d84019cc-da14-4704-b197-bdafab9f2e20}</UniqueIdentifier>
     </Filter>
+    <Filter Include="team">
+      <UniqueIdentifier>{2632fb91-30a4-4d21-b2bd-de8ecb4bb3aa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -35,12 +38,6 @@
     </ClInclude>
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ClientList.h">
-      <Filter>socket</Filter>
-    </ClInclude>
-    <ClInclude Include="TcpServer.h">
-      <Filter>socket</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\bns\ToolTest\ToolTest\NonCopyable.h">
       <Filter>common</Filter>
@@ -54,26 +51,59 @@
     <ClInclude Include="..\..\..\bns\ToolTest\ToolTest\StringTool.h">
       <Filter>common</Filter>
     </ClInclude>
-    <ClInclude Include="..\common\MsgpackMap.h">
-      <Filter>socket</Filter>
-    </ClInclude>
-    <ClInclude Include="DbConnctionPool.h">
-      <Filter>db</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\bns\ToolTest\ToolTest\IniFile.h">
       <Filter>common</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\bns\ToolTest\ToolTest\FileTool.h">
       <Filter>common</Filter>
     </ClInclude>
-    <ClInclude Include="SocketSession.h">
-      <Filter>socket</Filter>
-    </ClInclude>
-    <ClInclude Include="ClientSession.h">
-      <Filter>trade</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\bns\ToolTest\ToolTest\BoostLog.h">
       <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="TempTeam.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TeamRequestMgr.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TeamMgr.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Team.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TcpServer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SocketSession.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MatchSuccessTeamMgr.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="JoinTeamRequest.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DbConnctionPool.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientSession.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CJoinTeamReqCharacteristic.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\ServerTeamMember.h">
+      <Filter>team</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\GameRoleID.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\MsgpackMap.h">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -82,12 +112,6 @@
     </ClCompile>
     <ClCompile Include="TdServer.cpp">
       <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="ClientList.cpp">
-      <Filter>socket</Filter>
-    </ClCompile>
-    <ClCompile Include="TcpServer.cpp">
-      <Filter>socket</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\bns\ToolTest\ToolTest\SystemTool.cpp">
       <Filter>common</Filter>
@@ -98,26 +122,59 @@
     <ClCompile Include="..\..\..\bns\ToolTest\ToolTest\StringTool.cpp">
       <Filter>common</Filter>
     </ClCompile>
-    <ClCompile Include="..\common\MsgpackMap.cpp">
-      <Filter>socket</Filter>
-    </ClCompile>
-    <ClCompile Include="DbConnctionPool.cpp">
-      <Filter>db</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\bns\ToolTest\ToolTest\IniFile.cpp">
       <Filter>common</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\bns\ToolTest\ToolTest\FileTool.cpp">
       <Filter>common</Filter>
     </ClCompile>
-    <ClCompile Include="SocketSession.cpp">
-      <Filter>socket</Filter>
-    </ClCompile>
-    <ClCompile Include="ClientSession.cpp">
-      <Filter>trade</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\bns\ToolTest\ToolTest\BoostLog.cpp">
       <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="TempTeam.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TeamRequestMgr.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TeamMgr.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Team.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TcpServer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SocketSession.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MatchSuccessTeamMgr.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="JoinTeamRequest.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DbConnctionPool.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientSession.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientList.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\ServerTeamMember.cpp">
+      <Filter>team</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\GameRoleID.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\MsgpackMap.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CJoinTeamReqCharacteristic.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
