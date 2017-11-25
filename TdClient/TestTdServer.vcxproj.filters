@@ -45,8 +45,11 @@
     <ClInclude Include="TdClient.h">
       <Filter>trade</Filter>
     </ClInclude>
-    <ClInclude Include="UnPack.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="..\common\MsgpackMap.h">
+      <Filter>socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\bns\ToolTest\ToolTest\StringTool.h">
+      <Filter>common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -54,9 +57,6 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="TestTdServer.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\common\TransMsg.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="TcpClient.cpp">
@@ -68,8 +68,11 @@
     <ClCompile Include="TdClient.cpp">
       <Filter>trade</Filter>
     </ClCompile>
-    <ClCompile Include="UnPack.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="..\common\MsgpackMap.cpp">
+      <Filter>socket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\bns\ToolTest\ToolTest\StringTool.cpp">
+      <Filter>common</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -69,6 +69,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ToolTestPath)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -81,32 +82,40 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\bns\ToolTest\ToolTest\BoostLog.h" />
     <ClInclude Include="..\..\..\bns\ToolTest\ToolTest\DebugOutput.h" />
-    <ClInclude Include="..\common\TransMsg.h" />
+    <ClInclude Include="..\..\..\bns\ToolTest\ToolTest\FileTool.h" />
+    <ClInclude Include="..\..\..\bns\ToolTest\ToolTest\IniFile.h" />
+    <ClInclude Include="..\..\..\bns\ToolTest\ToolTest\NonCopyable.h" />
+    <ClInclude Include="..\..\..\bns\ToolTest\ToolTest\StringTool.h" />
+    <ClInclude Include="..\..\..\bns\ToolTest\ToolTest\SystemTool.h" />
+    <ClInclude Include="..\common\MsgpackMap.h" />
     <ClInclude Include="ClientList.h" />
-    <ClInclude Include="ClientSession.h" />
+    <ClInclude Include="SocketSession.h" />
     <ClInclude Include="DbConnctionPool.h" />
-    <ClInclude Include="ServerTransaction.h" />
+    <ClInclude Include="ClientSession.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TcpServer.h" />
-    <ClInclude Include="TradeSession.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\bns\ToolTest\ToolTest\BoostLog.cpp" />
     <ClCompile Include="..\..\..\bns\ToolTest\ToolTest\DebugOutput.cpp" />
-    <ClCompile Include="..\common\TransMsg.cpp" />
+    <ClCompile Include="..\..\..\bns\ToolTest\ToolTest\FileTool.cpp" />
+    <ClCompile Include="..\..\..\bns\ToolTest\ToolTest\IniFile.cpp" />
+    <ClCompile Include="..\..\..\bns\ToolTest\ToolTest\StringTool.cpp" />
+    <ClCompile Include="..\..\..\bns\ToolTest\ToolTest\SystemTool.cpp" />
+    <ClCompile Include="..\common\MsgpackMap.cpp" />
     <ClCompile Include="ClientList.cpp" />
-    <ClCompile Include="ClientSession.cpp" />
+    <ClCompile Include="SocketSession.cpp" />
     <ClCompile Include="DbConnctionPool.cpp" />
-    <ClCompile Include="ServerTransaction.cpp" />
+    <ClCompile Include="ClientSession.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="TcpServer.cpp" />
     <ClCompile Include="TdServer.cpp" />
-    <ClCompile Include="TradeSession.cpp" />
-    <ClCompile Include="TradeStruct.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

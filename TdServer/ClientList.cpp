@@ -2,11 +2,11 @@
 #include "ClientList.h"
 
 
-CClientList::CClientList()
+CSessionList::CSessionList()
 {
 }
 
 
-CClientList::~CClientList()
+CSessionList::~CSessionList()
 {
 }

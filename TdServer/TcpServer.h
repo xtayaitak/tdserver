@@ -18,6 +18,6 @@ private:
 	void CTcpServer::DoAccept();
 	tcp::acceptor acceptor_;
 	tcp::socket socket_;
-	CClientList client_list_;
+	CSessionList client_list_;
 };
 

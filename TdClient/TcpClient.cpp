@@ -4,8 +4,13 @@
 
 #include "TransMsg.h"
 
-CTcpClient::CTcpClient(const std::string & ip, short port) : ip_(ip), port_(port), socket_(io_service_)
+#define MAX_TRY_RECV_BUFF 1024
+
+
+
+CTcpClient::CTcpClient(const std::string & ip, short port) : m_ip(ip), m_port(port), m_socket(m_io_service)
 {
+	
 }
 
 
@@ -18,35 +23,29 @@ bool CTcpClient::Connect()
 {
 	try
 	{
-		socket_.connect(
-			tcp::endpoint(boost::asio::ip::address::from_string(ip_), port_)
+		m_socket.connect(
+			tcp::endpoint(boost::asio::ip::address::from_string(m_ip), m_port)
 			);
 		return true;
 	}
 	catch (boost::system::system_error  &e)
 	{
-		OutputDebugStrA("connect tcp:%s:%d failed :%s", ip_.c_str(), port_,e.what());
+		OutputDebugStrA("connect tcp:%s:%d failed :%s", m_ip.c_str(), m_port,e.what());
 		return false;
 	}
 }
 
 bool CTcpClient::Send(const char * szBuff, std::size_t nSize)
 {
-	//Encode Msg
-	
-	trans_msg_.SetBodyLength(nSize);
-	memcpy(trans_msg_.Body(), szBuff, trans_msg_.BodyLength());
-	trans_msg_.encode_header();
-
-	//Send
-	return RawSend(trans_msg_.Data(), trans_msg_.Length());
+	return RawSend(szBuff, nSize);
 }
+
 
 bool CTcpClient::RawSend(const char * szData, std::size_t nSize, bool with_connect)
 {
 	try
 	{
-		boost::asio::write(socket_, boost::asio::buffer(szData, nSize));
+		boost::asio::write(m_socket, boost::asio::buffer(szData, nSize));
 		return true;
 	}
 	catch (boost::system::system_error & e)
@@ -62,7 +61,7 @@ bool CTcpClient::RawSend(const char * szData, std::size_t nSize, bool with_conne
 			//∂œœﬂ÷ÿ¡∑
 			if (with_connect)
 			{
-				socket_.close();
+				m_socket.close();
 				if (Connect())
 					return RawSend(szData, nSize, false);
 			}			
@@ -71,50 +70,38 @@ bool CTcpClient::RawSend(const char * szData, std::size_t nSize, bool with_conne
 		return false;	
 	}
 }
-size_t CTcpClient::Recv()
+bool CTcpClient::Recv(msgpack::object_handle & result)
 {
 	try
 	{
-		auto head_size = boost::asio::read(socket_, boost::asio::buffer(trans_msg_.Data(), CTransMsg::header_length));
-		if (head_size != CTransMsg::header_length)
+		unpacker.reserve_buffer(MAX_TRY_RECV_BUFF);
+		while (true)
 		{
-			OutputDebugStrA("!!!Error:CTcpClient::Recv Head != ReadHead ");
-			Close();
-			return 0;
+			std::size_t actual_read_size = m_socket.read_some(boost::asio::buffer(unpacker.buffer(), MAX_TRY_RECV_BUFF));
+			unpacker.buffer_consumed(actual_read_size);
+			if (unpacker.next(result))
+			{
+				if (unpacker.nonparsed_size() == 0)
+					return true;
+				else
+				{
+					OutputDebugStr(L"muti bag?");
+					return false;
+				}
+			}
 		}
-
-		if (!trans_msg_.decode_header())
-		{
-			OutputDebugStrA("!!!CTcpClient::Recv trans_msg_.decode_header() failed!");
-			Close();
-			return 0;
-		}
-
-
-		auto body_size = boost::asio::read(socket_, boost::asio::buffer(trans_msg_.Body(), trans_msg_.BodyLength()));
-		if (body_size != trans_msg_.BodyLength())
-		{
-			OutputDebugStrA("!!!CTcpClient::Recv body_size != trans_msg_.BodyLength() ");
-			Close();
-			return 0;
-		}
-		return body_size;
 	}
 	catch (boost::system::system_error & e)
 	{
 		OutputDebugStrA("CTcpClient::Send exception:%s", e.what());
 		Close();
-		return 0;
+		return false;
 	}
 }
 
-const char * CTcpClient::GetData() const
-{
-	return trans_msg_.Body();
-}
 
 void CTcpClient::Close()
 {
 	//socket_.shutdown(tcp::socket::shutdown_both);
-	socket_.close();
+	m_socket.close();
 }

@@ -3,15 +3,15 @@
 #include <set>
 #include <memory>
 
-class CClientSession;
+class CSocketSession;
 
-typedef std::shared_ptr<CClientSession> SessionPtr;
+typedef std::shared_ptr<CSocketSession> SessionPtr;
 
-class CClientList
+class CSessionList
 {
 public:
-	CClientList();
-	~CClientList();
+	CSessionList();
+	~CSessionList();
 	void Join(SessionPtr client_ptr)
 	{
 		client_list.insert(client_ptr);

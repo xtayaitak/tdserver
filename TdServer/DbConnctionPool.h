@@ -1,5 +1,7 @@
 #pragma once
 
+#include "ClassInstance.h"
+
 #import "C:\Program Files\Common Files\System\ado\msado15.dll" rename("EOF", "adoEOF") rename("BOF", "adoBOF")
 
 
@@ -8,7 +10,7 @@
 #else
 #define CONNECTION_POOL_COUNT 10
 #endif
-class CDbConnctionPool
+class CDbConnctionPool : public CClassInstance<CDbConnctionPool>
 {
 public:
 	CDbConnctionPool(void);

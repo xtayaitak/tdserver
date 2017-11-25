@@ -1,35 +1,24 @@
 #pragma once
-
-#include <memory>
-#include <boost/asio.hpp>
-#include "TransMsg.h"
-using boost::asio::ip::tcp;
-
-#include "ClientList.h"
+#include "SocketSession.h"
+#include <string>
+#include <ctime>
+#include <boost/date_time/posix_time/posix_time.hpp>
 
 
-class CClientSession : public std::enable_shared_from_this<CClientSession>
+class CClientSession : public CSocketSession
 {
 public:
-
-	CClientSession(tcp::socket s, CClientList & client_list) : socket_(std::move(s)), client_list_(client_list){ std::cout << "Client ¹¹Ôì" << std::endl; }
+	CClientSession(tcp::socket s, CSessionList & client_list);
 	~CClientSession();
-	void Start()
-	{
-		client_list_.Join(shared_from_this());
-		DoReadHeader();
-	}
-protected:
-	virtual void ProcessRequest(const char * szRequest, std::size_t nRequestSize, std::vector<char> & OutBuffer);
-	CTransMsg msg_;
-	void EncodeWriteData(BYTE * data, size_t nSize);
+
+	virtual bool CClientSession::ProcessPackObj(const msgpack::object & obj, msgpack::sbuffer * psbuff);
+
+	bool OnLoginRequest(const std::wstring & user, const std::wstring & pwd,const std::wstring & mc_info,std::wstring & msg);
+
+	bool IsLogined() const { return m_logined; }
 private:
-	void DoReadHeader();
-	void DoReadBody();
-	void DoWrite(const char * szBuff,std::size_t nSize);
-	tcp::socket socket_;
-	CClientList & client_list_;
+	bool m_logined = false;
+	boost::posix_time::ptime m_expite_time;
+
 };
 
-
-typedef std::shared_ptr<CClientSession> SessionPtr;

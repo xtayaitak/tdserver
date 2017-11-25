@@ -6,7 +6,8 @@ using boost::asio::ip::tcp;
 
 #include <vector>
 
-#include "TransMsg.h"
+#include "msgpack.hpp"
+
 
 
 //不可以多线程调用此类的成员函数
@@ -18,19 +19,17 @@ public:
 	bool Send(const char * szBuff,std::size_t nSize);
 
 	//读取固定数目的数据
-	size_t Recv();
-	const char * GetData() const;
+	bool Recv(msgpack::object_handle & result);
 protected:
 	void Close();
 private:
 	bool Connect();
 	//发送固定数目的数据
 	bool RawSend(const char * szData, std::size_t nSize, bool with_connect = true);
-	boost::asio::io_service io_service_;
-	tcp::socket socket_;
-	std::string ip_;
-	short port_ = 0;
-	CTransMsg trans_msg_;
-
+	boost::asio::io_service m_io_service;
+	tcp::socket m_socket;
+	std::string m_ip;
+	short m_port = 0;
+	msgpack::unpacker unpacker;
 };
 

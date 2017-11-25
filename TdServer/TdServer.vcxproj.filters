@@ -19,6 +19,12 @@
     <Filter Include="trade">
       <UniqueIdentifier>{4e0af390-ffc7-4840-8014-e8ed402bfe3e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{2bfa4fa9-bf9e-4f10-98fd-3ceafc870048}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="db">
+      <UniqueIdentifier>{d84019cc-da14-4704-b197-bdafab9f2e20}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -30,29 +36,44 @@
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="DbConnctionPool.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\bns\ToolTest\ToolTest\DebugOutput.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="ClientList.h">
-      <Filter>socket</Filter>
-    </ClInclude>
-    <ClInclude Include="ClientSession.h">
       <Filter>socket</Filter>
     </ClInclude>
     <ClInclude Include="TcpServer.h">
       <Filter>socket</Filter>
     </ClInclude>
-    <ClInclude Include="..\common\TransMsg.h">
+    <ClInclude Include="..\..\..\bns\ToolTest\ToolTest\NonCopyable.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\bns\ToolTest\ToolTest\SystemTool.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\bns\ToolTest\ToolTest\DebugOutput.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\bns\ToolTest\ToolTest\StringTool.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\MsgpackMap.h">
       <Filter>socket</Filter>
     </ClInclude>
-    <ClInclude Include="ServerTransaction.h">
+    <ClInclude Include="DbConnctionPool.h">
+      <Filter>db</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\bns\ToolTest\ToolTest\IniFile.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\bns\ToolTest\ToolTest\FileTool.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="SocketSession.h">
+      <Filter>socket</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientSession.h">
       <Filter>trade</Filter>
     </ClInclude>
-    <ClInclude Include="TradeSession.h">
-      <Filter>trade</Filter>
+    <ClInclude Include="..\..\..\bns\ToolTest\ToolTest\BoostLog.h">
+      <Filter>common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -62,32 +83,41 @@
     <ClCompile Include="TdServer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="DbConnctionPool.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\bns\ToolTest\ToolTest\DebugOutput.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="ClientList.cpp">
-      <Filter>socket</Filter>
-    </ClCompile>
-    <ClCompile Include="ClientSession.cpp">
       <Filter>socket</Filter>
     </ClCompile>
     <ClCompile Include="TcpServer.cpp">
       <Filter>socket</Filter>
     </ClCompile>
-    <ClCompile Include="..\common\TransMsg.cpp">
+    <ClCompile Include="..\..\..\bns\ToolTest\ToolTest\SystemTool.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\bns\ToolTest\ToolTest\DebugOutput.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\bns\ToolTest\ToolTest\StringTool.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\MsgpackMap.cpp">
       <Filter>socket</Filter>
     </ClCompile>
-    <ClCompile Include="ServerTransaction.cpp">
+    <ClCompile Include="DbConnctionPool.cpp">
+      <Filter>db</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\bns\ToolTest\ToolTest\IniFile.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\bns\ToolTest\ToolTest\FileTool.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="SocketSession.cpp">
+      <Filter>socket</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientSession.cpp">
       <Filter>trade</Filter>
     </ClCompile>
-    <ClCompile Include="TradeSession.cpp">
-      <Filter>trade</Filter>
-    </ClCompile>
-    <ClCompile Include="TradeStruct.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="..\..\..\bns\ToolTest\ToolTest\BoostLog.cpp">
+      <Filter>common</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
